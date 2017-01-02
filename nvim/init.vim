@@ -3,6 +3,12 @@ source ~/.config/nvim/plugins.vim
 
 set modelines=0
 
+set noswapfile
+
+noremap H ^
+noremap L $
+vnoremap L g_
+
 "TAB settings.
 set tabstop=4
 set shiftwidth=4
@@ -22,7 +28,6 @@ set synmaxcol=300
 set nocursorcolumn
 set nocursorline
 
-set nonumber
 set norelativenumber
 
 set undofile
@@ -37,8 +42,8 @@ set hlsearch
 
 " Make Vim to handle long lines nicely.
 set wrap
-set textwidth=79
-set colorcolumn=79
+set textwidth=80
+set colorcolumn=80
 
 set completeopt=menu,noinsert,noselect
 
@@ -109,7 +114,7 @@ endif
 "   set t_Co=256
 " endif
 
-set termguicolors
+" set termguicolors
 if $ITERM_PROFILE =~? 'light'
   set background=light
 else
@@ -261,6 +266,7 @@ endif
 
 let g:fzf_command_prefix = 'FF'
 let g:fzf_layout = { 'down': '~20%' }
+set number
 
 if filereadable(glob("~/.config/nvim/keybindings.vim"))
   source ~/.config/nvim/keybindings.vim

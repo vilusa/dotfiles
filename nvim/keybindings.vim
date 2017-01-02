@@ -1,6 +1,6 @@
 " Changing Leader Key
 nnoremap <Space> <nop>
-let mapleader = "\<Space>"
+let mapleader = ","
 let maplocalleader = "\,"
 
 function! s:unite_bindings()
@@ -16,6 +16,7 @@ endfunction
 
 function! s:python_bindings()
   nnoremap <silent> <leader>md :call jedi#goto()<cr>
+  nnoremap <silent> <leader>mD :vs<cr><C-w><C-l>:call jedi#goto()<cr>
   nnoremap <silent> <leader>mg :call jedi#goto_assignments()<cr>
   nnoremap <silent> <leader>mr :call jedi#rename()<cr>
   nnoremap <silent> <leader>mn :call jedi#usages()<cr>
@@ -61,10 +62,8 @@ function! s:general_bindings()
   nnoremap <leader><tab> :b#<CR>
 
   " search
-  nnoremap / /\v
-  vnoremap / /\v
-  nnoremap n nzzzv
-  nnoremap N Nzzzv
+  nnoremap n Nzzzv
+  nnoremap N nzzzv
   nnoremap <leader>ss :Grepper -tool rg -quickfix -open -switch -nojump -prompt<cr>
   nnoremap <leader>sS :Grepper -side -tool rg -prompt<cr>
   nnoremap <silent><BS> :noh<cr>
@@ -96,6 +95,7 @@ function! s:general_bindings()
   " quit
   nnoremap <silent><leader>Q :SmartClose<cr>
   vnoremap <silent><leader>Q :SmartClose<cr>
+  nnoremap <silent><leader>q :bd<cr>
 
   " Show syntax highlighting groups for word under cursor
   nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -122,3 +122,5 @@ augroup bindings
   autocmd FileType go call s:go_bindings()
   autocmd FileType rust call s:rust_bindings()
 augroup END
+
+nnoremap <silent><bs> :nohlsearch<CR>
