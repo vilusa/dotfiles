@@ -62,8 +62,8 @@ function! s:general_bindings()
   nnoremap <leader><tab> :b#<CR>
 
   " search
-  nnoremap n Nzzzv
-  nnoremap N nzzzv
+  nnoremap n nzzzv
+  nnoremap N Nzzzv
   nnoremap <leader>ss :Grepper -tool rg -quickfix -open -switch -nojump -prompt<cr>
   nnoremap <leader>sS :Grepper -side -tool rg -prompt<cr>
   nnoremap <silent><BS> :noh<cr>

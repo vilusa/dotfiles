@@ -120,7 +120,9 @@ if $ITERM_PROFILE =~? 'light'
 else
   set background=dark
 endif
-colorscheme solarized8_dark
+" colorscheme solarized8_dark
+" colorscheme solarized8_dark_flat
+colorscheme busierbee
 
 syntax sync minlines=256
 highlight clear VertSplit
