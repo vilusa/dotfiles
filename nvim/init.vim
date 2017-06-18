@@ -42,7 +42,7 @@ set hlsearch
 
 " Make Vim to handle long lines nicely.
 set wrap
-set textwidth=80
+set textwidth=79
 set colorcolumn=80
 
 set completeopt=menu,noinsert,noselect
@@ -121,8 +121,8 @@ else
   set background=dark
 endif
 " colorscheme solarized8_dark
-" colorscheme solarized8_dark_flat
-colorscheme busierbee
+colorscheme solarized8_dark_flat
+" colorscheme busierbee
 
 syntax sync minlines=256
 highlight clear VertSplit
@@ -273,3 +273,5 @@ set number
 if filereadable(glob("~/.config/nvim/keybindings.vim"))
   source ~/.config/nvim/keybindings.vim
 endif
+
+au FileType dart setl sw=2 sts=2 et

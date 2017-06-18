@@ -13,6 +13,10 @@ else
   Plug 'tpope/vim-sensible'
 endif
 
+Plug 'bumaociyuan/vim-swift'
+Plug 'eraserhd/vim-ios'
+Plug 'dart-lang/dart-vim-plugin'
+
 " programming
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -65,5 +69,8 @@ Plug 'fatih/vim-go', {'for': 'go'}
 " rust-lang
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'racer-rust/vim-racer', {'for': 'rust'}
+
+" html
+Plug 'gregsexton/matchtag'
 
 call plug#end()
