@@ -276,3 +276,4 @@ endif
 
 " autocmd
 au FileType dart setl sw=2 sts=2 et
+au FileType blade setl sw=2 sts=2 et
