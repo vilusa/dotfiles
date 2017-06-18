@@ -72,5 +72,9 @@ Plug 'racer-rust/vim-racer', {'for': 'rust'}
 
 " html
 Plug 'gregsexton/matchtag'
+Plug 'mattn/emmet-vim'
+
+" blade.php
+Plug 'jwalton512/vim-blade'
 
 call plug#end()
