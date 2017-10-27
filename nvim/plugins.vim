@@ -52,6 +52,9 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 
 " javascript
 Plug 'tpope/vim-jdaddy'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'ternjs/tern_for_vim'
 
 " misc
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
