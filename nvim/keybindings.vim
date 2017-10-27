@@ -44,9 +44,9 @@ function! s:rust_bindings()
 endfunction
 
 function! s:js_bindings()
-  nnoremap <Leader>md :TernDef<CR>
+  nnoremap <silent> <Leader>md :TernDef<CR>
   nnoremap <leader>mr :TernRename<cr>
-  nnoremap <leader>gf :call JsBeautify()<cr>
+  nnoremap <silent> <leader>gf :call JsBeautify()<cr>
 endfunction
 
 function! s:general_bindings()

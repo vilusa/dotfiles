@@ -55,6 +55,7 @@ Plug 'tpope/vim-jdaddy'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'ternjs/tern_for_vim'
+Plug 'Valloric/YouCompleteMe'
 
 " misc
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
