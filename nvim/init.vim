@@ -114,14 +114,14 @@ endif
 "   set t_Co=256
 " endif
 
-" set termguicolors
+set termguicolors
 if $ITERM_PROFILE =~? 'light'
   set background=light
 else
   set background=dark
 endif
 " colorscheme solarized8_dark
-colorscheme solarized8_dark_flat
+colorscheme solarized
 " colorscheme busierbee
 
 syntax sync minlines=256
