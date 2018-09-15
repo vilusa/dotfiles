@@ -57,6 +57,7 @@ function! s:general_bindings()
 	" files
 	nmap <leader>ft <ESC>:TagbarToggle<cr>
 	nmap <leader>fs <ESC>:w<cr>
+	nnoremap <silent> <leader>gb <ESC>:Gblame<cr>
 	nnoremap <silent> <leader>ff :FFFiles<cr>
 	nnoremap <silent> <leader>fg :FFGFiles?<cr>
 	nnoremap <silent> <leader>fj :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
