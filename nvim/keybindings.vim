@@ -10,8 +10,6 @@ function! s:unite_bindings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-r>   <Plug>(unite_redraw)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
 endfunction
 
 function! s:python_bindings()
@@ -104,7 +102,13 @@ function! s:general_bindings()
 	vnoremap <silent><leader>Q :SmartClose<cr>
 	nnoremap <silent><leader>q :bd<cr>
 
-	" Show syntax highlighting groups for word under cursor
+  noremap <Leader>h :<C-u>split<CR>
+  noremap <Leader>v :<C-u>vsplit<CR>
+  noremap <Leader>q :<C-u>close<CR>
+
+  " Tree
+  map <C-n> :NERDTreeToggle<CR>
+  " Show syntax highlighting groups for word under cursor
 	nmap <C-S-P> :call <SID>SynStack()<CR>
 	function! <SID>SynStack()
 		if !exists("*synstack")

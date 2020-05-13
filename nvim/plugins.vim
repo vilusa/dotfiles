@@ -16,6 +16,7 @@ endif
 Plug 'bumaociyuan/vim-swift'
 Plug 'eraserhd/vim-ios'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'scrooloose/nerdtree'
 
 " programming
 Plug 'SirVer/ultisnips'

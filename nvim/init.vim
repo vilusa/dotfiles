@@ -245,8 +245,8 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 if has("nvim")
   let g:python_host_skip_check=1
   let g:python3_host_skip_check=1
-  let g:python_host_prog = $HOME . '/.virtualenvs/neovim2/bin/python'
-  let g:python3_host_prog = $HOME . '/.virtualenvs/neovim3/bin/python'
+  let g:python_host_prog = $HOME . '/.pyenv/versions/3.8.0/envs/neovim3/bin/python'
+  let g:python3_host_prog = $HOME . '/.pyenv/versions/3.8.0/envs/neovim3/bin/python'
 
   set clipboard+=unnamedplus
 
