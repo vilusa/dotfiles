@@ -120,9 +120,7 @@ if $ITERM_PROFILE =~? 'light'
 else
   set background=dark
 endif
-" colorscheme solarized8_dark
-colorscheme solarized
-" colorscheme busierbee
+colorscheme solarized8
 
 syntax sync minlines=256
 highlight clear VertSplit
@@ -187,7 +185,7 @@ let s:cache_dir = '~/.nvimtmp/cache'
 function! s:get_cache_dir(suffix)
   return resolve(expand(s:cache_dir . '/' . a:suffix))
 endfunction
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_selecta'])
 
 call unite#custom#profile('default', 'context', {
@@ -243,10 +241,8 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 if has("nvim")
-  let g:python_host_skip_check=1
   let g:python3_host_skip_check=1
-  let g:python_host_prog = $HOME . '/.pyenv/versions/3.8.0/envs/neovim3/bin/python'
-  let g:python3_host_prog = $HOME . '/.pyenv/versions/3.8.0/envs/neovim3/bin/python'
+  let g:python3_host_prog =$HOME . '/.virtualenvs/neovim3/bin/python' 
 
   set clipboard+=unnamedplus
 
