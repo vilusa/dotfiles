@@ -7,7 +7,7 @@ if has("nvim")
   Plug 'zchee/deoplete-jedi'
   Plug 'zchee/deoplete-go'
   Plug 'Shougo/neco-vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   call plug#begin('~/.config/nvim/plugged_vim')
   Plug 'tpope/vim-sensible'
@@ -91,5 +91,9 @@ Plug 'tpope/vim-bundler', {'for': 'ruby'}
 Plug 'tpope/vim-rbenv',   {'for': 'ruby'}
 Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
