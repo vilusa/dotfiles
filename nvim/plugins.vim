@@ -83,4 +83,13 @@ Plug 'mattn/emmet-vim'
 " blade.php
 Plug 'jwalton512/vim-blade'
 
+" ruby
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rake',    {'for': 'ruby'}
+Plug 'tpope/vim-rails',   {'for': 'ruby'}
+Plug 'tpope/vim-bundler', {'for': 'ruby'}
+Plug 'tpope/vim-rbenv',   {'for': 'ruby'}
+Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
+Plug 'kana/vim-textobj-user', {'for': 'ruby'}
+
 call plug#end()
