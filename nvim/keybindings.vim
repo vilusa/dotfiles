@@ -21,6 +21,13 @@ function! s:python_bindings()
   nnoremap <silent> <leader>mV :VirtualEnvActivate 
 endfunction
 
+function! s:ruby_bindings()
+  nmap <silent>K <Plug>(lcn-hover)
+  nmap <silent> gd <Plug>(lcn-definition)
+  nmap <silent> gr <Plug>(lcn-references)
+  nmap <silent> <F2> <Plug>(lcn-rename)
+endfunction
+
 function! s:haskell_bindings()
   nnoremap <Leader>mt :GhcModType<CR>
   nnoremap <Leader>mi :GhcModInfo<CR>
@@ -133,6 +140,7 @@ augroup bindings
 	autocmd FileType go call s:go_bindings()
 	autocmd FileType rust call s:rust_bindings()
 	autocmd FileType javascript call s:js_bindings()
+  autocmd FileType ruby call s:ruby_bindings()
 augroup END
 
 nnoremap <silent><bs> :nohlsearch<CR>

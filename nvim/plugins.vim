@@ -95,5 +95,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'tpope/vim-endwise', {'for': 'ruby'}
 
 call plug#end()

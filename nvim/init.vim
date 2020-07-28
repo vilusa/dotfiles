@@ -44,8 +44,8 @@ set hlsearch
 
 " Make Vim to handle long lines nicely.
 set wrap
-set textwidth=79
-set colorcolumn=80
+set textwidth=99
+set colorcolumn=100
 
 set completeopt=menu,noinsert,noselect
 
@@ -287,9 +287,10 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ }
 
-" note that if you are using Plug mapping you should not use `noremap` mappings.
-nmap <F5> <Plug>(lcn-menu)
-" Or map each action separately
-nmap <silent>K <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
-nmap <silent> <F2> <Plug>(lcn-rename)
+" Don't send a stop signal to the server when exiting vim.
+" This is optional, but I don't like having to restart Solargraph
+" every time I restart vim.
+let g:LanguageClient_autoStop = 0
+
+" Configure ruby omni-completion to use the language client:
+autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
