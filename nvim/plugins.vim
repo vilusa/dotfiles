@@ -4,26 +4,17 @@ if has("nvim")
     UpdateRemotePlugins
   endfunction
 
-  Plug 'zchee/deoplete-jedi'
-  Plug 'zchee/deoplete-go'
-  Plug 'Shougo/neco-vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   call plug#begin('~/.config/nvim/plugged_vim')
   Plug 'tpope/vim-sensible'
 endif
 
-Plug 'bumaociyuan/vim-swift'
-Plug 'eraserhd/vim-ios'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
 " programming
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 
 " editing
 Plug 'jiangmiao/auto-pairs'
@@ -31,7 +22,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
-Plug 'szw/vim-smartclose'
+Plug 'szw/vim-smartclose', {'on': 'SmartClose'}
 
 " navigating
 Plug 'tpope/vim-vinegar'
@@ -58,6 +49,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'ternjs/tern_for_vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'dense-analysis/ale'
+
 
 " misc
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
@@ -79,6 +72,7 @@ Plug 'racer-rust/vim-racer', {'for': 'rust'}
 " html
 Plug 'gregsexton/matchtag'
 Plug 'mattn/emmet-vim'
+Plug 'mustache/vim-mustache-handlebars'
 
 " blade.php
 Plug 'jwalton512/vim-blade'
@@ -96,5 +90,15 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
+
+" clojure
+
+Plug 'guns/vim-sexp',                              {'for': 'clojure'}
+Plug 'tpope/vim-salve',                            {'for': 'clojure'}
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+" Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure', 'do': 'cargo build --release'}
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
 
 call plug#end()

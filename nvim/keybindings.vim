@@ -49,7 +49,7 @@ function! s:rust_bindings()
 endfunction
 
 function! s:js_bindings()
-  nnoremap <silent> <Leader>md :TernDef<CR>
+  nnoremap <silent> gd :TernDef<CR>
   nnoremap <leader>mr :TernRename<cr>
   nnoremap <silent> <leader>gf :call JsBeautify()<cr>
 endfunction
@@ -65,6 +65,7 @@ function! s:general_bindings()
 	nnoremap <silent> <leader>gb <ESC>:Gblame<cr>
 	nnoremap <silent> <leader>ff :FFFiles<cr>
 	nnoremap <silent> <leader>fg :FFGFiles?<cr>
+	nnoremap <silent> <leader>fa :Gfiles<cr>
 	nnoremap <silent> <leader>fj :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
 	" to remove white space from a file.
 	nnoremap <leader>fW :%s/\s\+$//<cr>:let @/=''<CR>

@@ -45,6 +45,7 @@ set hlsearch
 " Make Vim to handle long lines nicely.
 set wrap
 set textwidth=99
+set colorcolumn=80
 set colorcolumn=100
 
 set completeopt=menu,noinsert,noselect
@@ -177,6 +178,16 @@ augroup neomake_au
   autocmd BufWritePost *.rb Neomake
 augroup END
 
+call neomake#configure#automake('nrwi', 500)
+let g:neomake_clojure_enabled_makers = ['kondo']
+let g:neomake_kondo_maker = {
+      \ 'exe': 'clj-kondo',
+      \ 'args': ['--lint'],
+      \ 'errorformat': '%f:%l:%c:\ Parse\ %t%*[^:]:\ %m,%f:%l:%c:\ %t%*[^:]:\ %m'
+      \ }
+
+let g:clojure_align_subforms = 1
+
 " snipmate trigger key modified because conflicts with youcompleteme
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -216,6 +227,7 @@ augroup omni
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
 augroup END
 
 let g:tagbar_type_rust = {
@@ -268,10 +280,6 @@ let g:fzf_command_prefix = 'FF'
 let g:fzf_layout = { 'down': '~20%' }
 set number
 
-if filereadable(glob("~/.config/nvim/keybindings.vim"))
-  source ~/.config/nvim/keybindings.vim
-endif
-
 " autocmd
 au FileType dart setl sw=2 sts=2 et
 au FileType blade setl sw=2 sts=2 et
@@ -285,6 +293,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'clojure': ['bash', '-c', '~/usr/local/bin/clojure-lsp'],
     \ }
 
 " Don't send a stop signal to the server when exiting vim.
@@ -292,5 +301,37 @@ let g:LanguageClient_serverCommands = {
 " every time I restart vim.
 let g:LanguageClient_autoStop = 0
 
-" Configure ruby omni-completion to use the language client:
-autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+let g:ale_linters = {
+\  'javascript': ['prettier'],
+\  'clojure': ['clj-kondo'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\}
+
+" External keybindings
+if filereadable(glob("~/.config/nvim/keybindings.vim"))
+  source ~/.config/nvim/keybindings.vim
+endif
