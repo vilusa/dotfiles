@@ -38,6 +38,7 @@ Plug 'junegunn/fzf.vim'
 " vim interface
 Plug 'lifepillar/vim-solarized8'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'morhetz/gruvbox'
 
 " python
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
@@ -51,31 +52,13 @@ Plug 'ternjs/tern_for_vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'dense-analysis/ale'
 
-
 " misc
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'sjl/vitality.vim'
-Plug 'diepm/vim-rest-console', {'for': 'rest'}
-
-" haskell
-Plug 'dag/vim2hs', {'for': 'haskell'}
-Plug 'eagletmt/ghcmod-vim', {'for': 'haskell'}
-Plug 'eagletmt/neco-ghc', {'for': 'haskell'}
-
-" golang
-Plug 'fatih/vim-go', {'for': 'go'}
-
-" rust-lang
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'racer-rust/vim-racer', {'for': 'rust'}
 
 " html
 Plug 'gregsexton/matchtag'
 Plug 'mattn/emmet-vim'
 Plug 'mustache/vim-mustache-handlebars'
-
-" blade.php
-Plug 'jwalton512/vim-blade'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -85,20 +68,22 @@ Plug 'tpope/vim-bundler', {'for': 'ruby'}
 Plug 'tpope/vim-rbenv',   {'for': 'ruby'}
 Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'tpope/vim-endwise', {'for': 'ruby'}
 
 " clojure
 
 Plug 'guns/vim-sexp',                              {'for': 'clojure'}
 Plug 'tpope/vim-salve',                            {'for': 'clojure'}
-Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-" Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure', 'do': 'cargo build --release'}
+Plug 'tpope/vim-fireplace',                        {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
-Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static',                    {'for': 'clojure'}
+Plug 'guns/vim-clojure-highlight',                 {'for': 'clojure'}
+" Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure', 'do': 'cargo build --release'}
+"
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()

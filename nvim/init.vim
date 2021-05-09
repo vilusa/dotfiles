@@ -4,7 +4,6 @@ source ~/.config/nvim/plugins.vim
 set modelines=0
 
 set noswapfile
-
 noremap H ^
 noremap L $
 vnoremap L g_
@@ -45,8 +44,7 @@ set hlsearch
 " Make Vim to handle long lines nicely.
 set wrap
 set textwidth=99
-set colorcolumn=80
-set colorcolumn=100
+set colorcolumn=88,80
 
 set completeopt=menu,noinsert,noselect
 
@@ -67,6 +65,7 @@ set pastetoggle=<F3>
 set backupskip=/tmp/*,/private/tmp/*"
 
 " Wildmenu completion "
+"
 set wildmode=full
 set wildignore+=.hg,.git,.svn " Version Controls"
 set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
@@ -100,6 +99,7 @@ set suffixesadd+=.hs
 set suffixesadd+=.md
 set suffixesadd+=.txt
 set suffixesadd+=.todo
+set suffixesadd+=.rb
 
 " Removing scrollbars
 if has("gui_running")
@@ -112,18 +112,12 @@ if has("gui_running")
   set guifont=Fira\ Code:h12
 endif
 
-" Special Settings for Consoles
-" if !has("gui_running")
-"   set t_Co=256
-" endif
 
+" Colorschema
 set termguicolors
-if $ITERM_PROFILE =~? 'light'
-  set background=light
-else
-  set background=dark
-endif
-colorscheme solarized8
+set background=dark
+let g:gruvbox_contrast_dark = 'medium'
+colorscheme gruvbox
 
 syntax sync minlines=256
 highlight clear VertSplit
@@ -160,6 +154,8 @@ augroup programming_au
   autocmd BufEnter volofile setf javascript
   " autocmd FileType python set ft=python.django " For SnipMate
   autocmd FileType html set ft=htmldjango " For SnipMate
+  autocmd FileType dart setl sw=2 sts=2 et
+  autocmd FileType blade setl sw=2 sts=2 et
 augroup END
 
 let g:netrw_liststyle=3
@@ -230,23 +226,6 @@ augroup omni
   autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
 augroup END
 
-let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits,traits',
-        \'i:impls,trait implementations',
-    \]
-    \}
-
-" rust racer
-let g:racer_no_default_keymappings = 1
-
 " smartclose
 let g:smartclose_set_default_mapping = 0
 
@@ -279,10 +258,6 @@ endif
 let g:fzf_command_prefix = 'FF'
 let g:fzf_layout = { 'down': '~20%' }
 set number
-
-" autocmd
-au FileType dart setl sw=2 sts=2 et
-au FileType blade setl sw=2 sts=2 et
 "
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -293,13 +268,22 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ 'clojure': ['bash', '-c', '~/usr/local/bin/clojure-lsp'],
+    \ 'clojure': ['bash', '-c', '/usr/local/bin/clojure-lsp'],
     \ }
 
 " Don't send a stop signal to the server when exiting vim.
 " This is optional, but I don't like having to restart Solargraph
 " every time I restart vim.
 let g:LanguageClient_autoStop = 0
+
+let g:ale_linters = {
+\  'javascript': ['prettier'],
+\  'clojure': ['clj-kondo'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\}
 
 
 " NERDTress File highlighting
@@ -321,15 +305,6 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
-let g:ale_linters = {
-\  'javascript': ['prettier'],
-\  'clojure': ['clj-kondo'],
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier'],
-\}
 
 " External keybindings
 if filereadable(glob("~/.config/nvim/keybindings.vim"))
