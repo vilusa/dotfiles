@@ -22,6 +22,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
+Plug 'dense-analysis/ale'
 Plug 'szw/vim-smartclose', {'on': 'SmartClose'}
 
 " navigating
@@ -36,8 +37,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " vim interface
-Plug 'lifepillar/vim-solarized8'
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'morhetz/gruvbox'
 
 " python
@@ -45,12 +44,11 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 
 " javascript
-Plug 'tpope/vim-jdaddy'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'ternjs/tern_for_vim'
-Plug 'Valloric/YouCompleteMe'
-Plug 'dense-analysis/ale'
+Plug 'tpope/vim-jdaddy', {'for': 'javascript'}
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
+Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
+Plug 'Valloric/YouCompleteMe', {'for': 'javascript'}
 
 " misc
 Plug 'sjl/vitality.vim'
@@ -78,8 +76,12 @@ Plug 'tpope/vim-fireplace',                        {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'guns/vim-clojure-static',                    {'for': 'clojure'}
 Plug 'guns/vim-clojure-highlight',                 {'for': 'clojure'}
-" Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure', 'do': 'cargo build --release'}
-"
+Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure', 'do': 'cargo build --release'}
+" Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+
+" Plug 'tpope/vim-dispatch'
+" Plug 'clojure-vim/vim-jack-in'
+" Plug 'radenling/vim-dispatch-neovim'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',

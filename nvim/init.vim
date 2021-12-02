@@ -44,7 +44,7 @@ set hlsearch
 " Make Vim to handle long lines nicely.
 set wrap
 set textwidth=99
-set colorcolumn=88,80
+set colorcolumn=88
 
 set completeopt=menu,noinsert,noselect
 
@@ -116,7 +116,7 @@ endif
 " Colorschema
 set termguicolors
 set background=dark
-let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_dark = 'dark'
 colorscheme gruvbox
 
 syntax sync minlines=256
