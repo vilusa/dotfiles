@@ -1,6 +1,8 @@
 # My Personal Configuration Files
 
-The installation instructions are coming soon...
+- First install Homebrew
+
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ## VIM Configuration
 
